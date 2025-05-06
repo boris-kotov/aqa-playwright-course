@@ -14,7 +14,7 @@
 
 import test, { expect } from "@playwright/test";
 
-test.describe.only("[UI] [Dynamic Controls] Work with dynamic controls", () => {
+test.describe("[UI] [Dynamic Controls] Work with dynamic controls", () => {
   test("Dynamic controls test", async ({ page }) => {
     await page.goto("https://the-internet.herokuapp.com/");
     const dynamicLoadingLink = page.getByRole("link", {
