@@ -7,7 +7,7 @@
 
 import test, { expect } from "@playwright/test";
 
-test.describe.only("[UI] Verify user login", () => {
+test.describe("[UI] Verify user login", () => {
   const userData = {
     username: "test@gmail.com",
     password: "12345678",
