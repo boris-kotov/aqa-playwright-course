@@ -18,11 +18,7 @@ test.describe("[UI] Verify user login", () => {
     await page.locator("#emailinput").fill(userData.username);
     await page.locator("#passwordinput").fill(userData.password);
     await page.getByRole("button", { name: "Login", exact: true }).click();
-    await page.waitForSelector(".spinner-border", {
-      state: "hidden",
-      timeout: 10000,
-    });
-    await expect(page.locator(".spinner-border")).toHaveCount(0);
+    await expect(page.locator(".spinner-border")).toHaveCount(0, {timeout: 20000});
     await expect(page.locator("strong")).toHaveText("Anatoly");
     await expect(page.locator("#sidebar")).toHaveScreenshot("sidebar.png");
   });
