@@ -150,7 +150,7 @@ async function fillCredentialsAndSubmit(
   await form.locator("#register").click();
 }
 
-test.describe("[UI][Demo Login Form][Registration] Negative scenarios", () => {
+test.describe("[UI][Demo Login Form][Registration] Negative scenarios", async () => {
   for (const data of registrationInvalidTestData) {
     test(data.testName, async ({ page }) => {
       await openRegistrationPage(page);
