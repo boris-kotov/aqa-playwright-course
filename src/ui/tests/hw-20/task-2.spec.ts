@@ -49,7 +49,7 @@ test.describe("[UI] [Demo Shopping Cart] [E2E]]", async () => {
 
     await expect(page.locator("#total-price")).toHaveText(`$${total}.00`);
 
-    await applyPromocodes(page, PROMOCODES);
+    await applyPromocodes(page, Object.values(PROMOCODES));
 
     const totalDiscountPercentage = await countTotalDiscount(page);
     const calculatedDiscount = (total / 100) * totalDiscountPercentage;
@@ -89,17 +89,18 @@ async function getProductPrice(
   return +price;
 }
 
-async function applyPromocodes(page, PROMOCODES) {
+async function applyPromocodes(page: Page, PROMOCODES: PROMOCODES[]) {
   const promocodeInput = page.locator("#rebate-input");
   const submitPromocodeButton = page.locator("#apply-promocode-button");
-  for (const promocode of Object.values(PROMOCODES)) {
+  for (const promocode of PROMOCODES) {
     await promocodeInput.fill(promocode);
-    await submitPromocodeButton.click({});
-    await page.waitForTimeout(1000);
+    await submitPromocodeButton.click();
+    await expect(page.locator(".spinner-border")).toBeHidden({timeout: 20000});
+    
   }
 }
 
-async function countTotalDiscount(page) {
+async function countTotalDiscount(page: Page) {
   const discountArray = await page
     .locator("#rebates-list small")
     .allInnerTexts();
