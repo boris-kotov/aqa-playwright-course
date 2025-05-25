@@ -54,7 +54,7 @@ test.describe("[UI] [Heroku] [Table]", async () => {
 
     // expect(actualTableData[0]).toMatchObject(expected[0]);
 
-    expect(actualTableData.length, `Number of rows in actual table should be equal to expected`).toBe(expected.length);
+    expect(actualTableData.length, `Number of table rows is not equal to expected: ${expected.length}`).toBe(expected.length);
     actualTableData.forEach((rowObject, index) => {
       expect.soft(rowObject).toMatchObject(expected[index]);
     });
