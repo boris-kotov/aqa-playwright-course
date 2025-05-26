@@ -14,7 +14,7 @@ test.describe("[UI] [Registration form] Registration form Smoke test", () => {
     password: "Password1",
   };
   const emptySpacesValidationMessage =
-    "Prefix and postfix spaces are not allowed is username";
+    "Prefix and postfix spaces are not allowed in username";
   const provideValidDataMessage = "Please, provide valid data";
   const requiredPasswordMessage = "Password is required";
 
