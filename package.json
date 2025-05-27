@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ui" : "npx playwright test",
+    "test:ui": "npx playwright test",
     "ui-mode": "npx playwright test --ui"
   },
   "repository": {
@@ -21,6 +21,6 @@
   "homepage": "https://github.com/boris-kotov/aqa-playwright-course#readme",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.21"
   }
 }
