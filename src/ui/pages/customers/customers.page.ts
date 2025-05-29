@@ -3,7 +3,7 @@ import { SalesPortalPage } from "../salesPortal.page";
 import { COUNTRIES } from "data/customers/countries.data";
 
 export class CustomersPage extends SalesPortalPage {
-  readonly addNewCustomerButton = this.page.getByRole("button", {
+  private readonly addNewCustomerButton = this.page.getByRole("button", {
     name: "Add Customer",
   });
 
