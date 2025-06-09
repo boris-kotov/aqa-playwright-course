@@ -1,3 +1,4 @@
+import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { SalesPortalPage } from "./salesPortal.page";
 
 export class SignInPage extends SalesPortalPage {
@@ -9,8 +10,8 @@ export class SignInPage extends SalesPortalPage {
   uniqueElement = this.user;
 
   async fillCredentials() {
-    await this.emailInput.fill(process.env.USERNAME!);
-    await this.passwordInput.fill(process.env.PASSWORD!);
+    await this.emailInput.fill(USER_LOGIN);
+    await this.passwordInput.fill(USER_PASSWORD);
   }
 
   async clickOnLoginButton() {

@@ -6,6 +6,7 @@
 //  - Верифицировать созданного покупателя в таблице (сравнить все имеющиеся поля, покупатель должен быть самым верхним)
 
 import test, { expect } from "@playwright/test";
+import { SALES_PORTAL_URL } from "config/environment";
 import { COUNTRIES } from "data/customers/countries.data";
 import { generateCustomerData } from "data/customers/generateCustomer.data";
 import { NOTIFICATIONS } from "data/notifications.data";
@@ -21,7 +22,7 @@ test.describe("[e2e] [UI] [Sales Portal] [Customers]", async () => {
     const customersPage = new CustomersPage(page);
     const addNewCustomerPage = new AddNewCustomerPage(page);
 
-    await page.goto(process.env.BASE_URL!);
+    await page.goto(SALES_PORTAL_URL);
     await signInPage.loginToSalesPortal();
     await homePage.waitForOpened();
     await homePage.clickModuleButton("Customers");
