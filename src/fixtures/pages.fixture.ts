@@ -3,7 +3,7 @@ import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { SignInPage } from "ui/pages/signIn.page";
-import {expect} from "@playwright/test";
+import { expect } from "@playwright/test";
 import { Pages } from "./page";
 
 interface ISalesPortalPages {
