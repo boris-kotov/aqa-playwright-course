@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { Url } from "url";
+import { SALES_PORTAL_URL } from "config/environment";
 
 export abstract class SalesPortalPage {
   baseURL: string;
@@ -8,7 +8,7 @@ export abstract class SalesPortalPage {
   abstract uniqueElement: Locator;
 
   constructor(protected page: Page) {
-    this.baseURL = "https://anatoly-karpovich.github.io/aqa-course-project/#";
+    this.baseURL = SALES_PORTAL_URL;
     this.spinner = this.page.locator(".spinner-border");
     this.notification = this.page.locator(".toast-body");
   }
@@ -23,10 +23,10 @@ export abstract class SalesPortalPage {
   }
 
   async waitForSpinner() {
-    await expect(this.spinner).toHaveCount(0);
+    await expect(this.spinner).toHaveCount(0, {timeout:3000});
   }
 
-  async waitForNotification(text: string) {
+  async waitForNotification(text: string, p0: void) {
     await expect(this.notification.last()).toHaveText(text);
   }
 }

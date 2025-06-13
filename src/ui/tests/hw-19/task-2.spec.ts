@@ -6,6 +6,7 @@
 //  - Проверить скриншотом боковое навигационное меню с выбранной страницей Home
 
 import test, { expect } from "@playwright/test";
+import { SALES_PORTAL_URL } from "config/environment";
 
 test.describe("[UI] Verify user login", () => {
   const userData = {
@@ -14,7 +15,7 @@ test.describe("[UI] Verify user login", () => {
   };
 
   test("Verify user logged in", async ({ page }) => {
-    await page.goto("https://anatoly-karpovich.github.io/aqa-course-project/#");
+    await page.goto(SALES_PORTAL_URL);
     await page.locator("#emailinput").fill(userData.username);
     await page.locator("#passwordinput").fill(userData.password);
     await page.getByRole("button", { name: "Login", exact: true }).click();
