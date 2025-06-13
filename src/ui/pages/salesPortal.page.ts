@@ -26,7 +26,7 @@ export abstract class SalesPortalPage {
     await expect(this.spinner).toHaveCount(0, {timeout:3000});
   }
 
-  async waitForNotification(text: string, p0: void) {
+  async waitForNotification(text: string) {
     await expect(this.notification.last()).toHaveText(text);
   }
 }

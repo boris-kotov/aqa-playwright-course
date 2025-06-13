@@ -76,6 +76,7 @@ test.describe("[UI] [Sales Portal] [Customers]", async () => {
     await customersPage.deleteModal.confirmDelete();
     await customersPage.waitForNotification(NOTIFICATIONS.CUSTOMER_DELETED);
 
-    expect(actualCustomerData).not.toEqual(_.pick(data, ["email", "name"]));
+    const topCustomerData = await customersPage.getCustomerData(data.email);
+    expect(topCustomerData).not.toEqual(_.pick(data, ["email", "name", "country"]));
   });
 });
