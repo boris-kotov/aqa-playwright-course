@@ -1,4 +1,4 @@
-export const USER_LOGIN = process.env.USERNAME;
+export const USER_LOGIN = process.env.USERNAME!;
 
 export const USER_PASSWORD = `${process.env.PASSWORD!}`;
 

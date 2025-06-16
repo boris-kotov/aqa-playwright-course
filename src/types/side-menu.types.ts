@@ -1,0 +1,1 @@
+export type SideMenuItem = "Home" | "Orders" | "Products" | "Customers" | "Managers";

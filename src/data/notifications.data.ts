@@ -3,3 +3,5 @@ export const NOTIFICATIONS = {
   CUSTOMER_DUPLICATED: (email: string) => `Customer with email '${email}' already exists`,
   CUSTOMER_DELETED: "Customer was successfully deleted",
 };
+
+export const EMPTY_TABLE_ROW_TEXT = "No records created yet";

@@ -4,7 +4,7 @@ import { Locator } from "@playwright/test";
 
 export class HomePage extends SalesPortalPage {
   title = this.page.locator(".welcome-text");
-  customersButton = this.page.getByRole("link", { name: "Customers" });
+  customersButton = this.page.getByRole("link", { name: "Customers" }).first();
   productsButton = this.page.getByRole("link", { name: "Products" });
   ordersButton = this.page.getByRole("link", { name: "Orders" });
 

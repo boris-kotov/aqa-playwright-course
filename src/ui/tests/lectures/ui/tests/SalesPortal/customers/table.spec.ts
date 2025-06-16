@@ -1,17 +1,11 @@
-// import test, { expect } from "@playwright/test";
 import { test, expect } from "fixtures/businessSteps.fixture";
 import { generateCustomerData } from "data/customers/generateCustomer.data";
 import { NOTIFICATIONS } from "data/notifications.data";
 import _ from "lodash";
 
 test.describe("[UI] [Sales Portal] [Customers]", async () => {
-  test("Should check created customer in table", async ({ homePage, customersPage, addNewCustomerPage, signInPage }) => {
-    // Precondition
-    await signInPage.openSalesPortalPage();
-    await signInPage.fillCredentials();
-    await signInPage.clickOnLoginButton();
-
-    await homePage.waitForOpened();
+  test("Should check created customer in table", async ({ loginAsLocalUser, homePage, customersPage, addNewCustomerPage }) => {
+    await loginAsLocalUser();
     await homePage.clickModuleButton("Customers");
     await customersPage.waitForOpened();
     await customersPage.clickAddNewCustomer();

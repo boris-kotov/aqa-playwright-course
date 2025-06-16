@@ -13,17 +13,17 @@ export abstract class SalesPortalPage {
     this.notification = this.page.locator(".toast-body");
   }
 
-  async openSalesPortalPage () {
+  async openSalesPortalPage() {
     await this.page.goto(this.baseURL);
   }
 
   async waitForOpened() {
-    await expect(this.uniqueElement).toBeVisible();
+    await expect(this.uniqueElement).toBeVisible({ timeout: 3000 });
     await this.waitForSpinner();
   }
 
   async waitForSpinner() {
-    await expect(this.spinner).toHaveCount(0, {timeout:3000});
+    await expect(this.spinner).toHaveCount(0, { timeout: 3000 });
   }
 
   async waitForNotification(text: string, p0: void) {
