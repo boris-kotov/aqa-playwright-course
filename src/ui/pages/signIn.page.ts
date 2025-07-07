@@ -1,25 +1,20 @@
-import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { SalesPortalPage } from "./salesPortal.page";
+import { ICredentials } from "types/singnIn.types";
 
 export class SignInPage extends SalesPortalPage {
-  emailInput = this.page.locator("#emailinput");
-  passwordInput = this.page.locator("#passwordinput");
-  loginButton = this.page.getByRole("button", { name: "Login" });
+  readonly emailInput = this.page.locator("#emailinput");
+  readonly passwordInput = this.page.locator("#passwordinput");
+  readonly loginButton = this.page.getByRole("button", { name: "Login" });
+  uniqueElement = this.loginButton;
+  // user = this.page.locator("strong");
+  // uniqueElement = this.user;
 
-  user = this.page.locator("strong");
-  uniqueElement = this.user;
-
-  async fillCredentials() {
-    await this.emailInput.fill(USER_LOGIN);
-    await this.passwordInput.fill(USER_PASSWORD);
+  async fillCredentials({email, password}: ICredentials) {
+    email && await this.emailInput.fill(email);
+    password && await this.passwordInput.fill(password);
   }
 
   async clickOnLoginButton() {
     await this.loginButton.click();
-  }
-
-  async loginToSalesPortal () {
-    await this.fillCredentials();
-    await this.clickOnLoginButton();
   }
 }

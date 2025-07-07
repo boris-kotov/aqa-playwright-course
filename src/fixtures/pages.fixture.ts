@@ -3,14 +3,16 @@ import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { SignInPage } from "ui/pages/signIn.page";
-import { expect } from "@playwright/test";
-import { Pages } from "./page";
+import { EditCustomerPage } from "ui/pages/customers/edit-customer.page";
+import { SideMenuComponent } from "ui/pages/side-menu.page";
 
 interface ISalesPortalPages {
   homePage: HomePage;
   addNewCustomerPage: AddNewCustomerPage;
   customersPage: CustomersPage;
   signInPage: SignInPage;
+  editCustomersPage: EditCustomerPage;
+  sideMenu: SideMenuComponent;
 }
 
 export const test = base.extend<ISalesPortalPages>({
@@ -25,6 +27,13 @@ export const test = base.extend<ISalesPortalPages>({
   },
   signInPage: async ({ page }, use) => {
     await use(new SignInPage(page));
+  },
+  editCustomersPage: async ({ page }, use) => {
+    await use(new EditCustomerPage(page));
+  },
+
+  sideMenu: async ({ page }, use) => {
+    await use(new SideMenuComponent(page));
   },
 });
 
