@@ -3,8 +3,6 @@ import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { SignInPage } from "ui/pages/signIn.page";
-import { expect } from "@playwright/test";
-import { Pages } from "./page";
 import { EditCustomerPage } from "ui/pages/customers/edit-customer.page";
 import { SideMenuComponent } from "ui/pages/side-menu.page";
 

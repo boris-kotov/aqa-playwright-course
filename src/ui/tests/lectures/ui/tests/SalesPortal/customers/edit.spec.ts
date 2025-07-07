@@ -1,11 +1,13 @@
 import { test, expect } from "fixtures/businessSteps.fixture";
+import _ from "lodash";
 
 test.describe("[UI] [Cuctomers] [Edit]", async ()=> {
-    test("Should edit customer with smoke data", async ({loginAsLocalUser, homePage, customersPage, editCustomersPage}) =>{
+    test("Should edit customer with smoke data", async ({page, loginAsLocalUser, homePage, customersPage, editCustomersPage}) =>{
         loginAsLocalUser();
         await homePage.clickModuleButton('Customers');
         await customersPage.waitForOpened();
-        await customersPage.clickTableAction("uesr001@gmail.com	", "edit");
+        const firstUserEmail = await page.locator("tbody tr:nth-child(1) td:nth-child(1)").innerText()
+        await customersPage.clickTableAction(firstUserEmail, "edit");
         await editCustomersPage.waitForOpened();
         await editCustomersPage.fillInputs({
             email: "a#%@!!",
@@ -18,8 +20,8 @@ test.describe("[UI] [Cuctomers] [Edit]", async ()=> {
             street: "12$#@!$",
         })
 
-        const error = await editCustomersPage.getFormErrors();
-
+        const errors = await editCustomersPage.getFormErrors();
+        console.log(errors);
 
     })
 })
